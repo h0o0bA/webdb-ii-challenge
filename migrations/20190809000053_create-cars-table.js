@@ -8,10 +8,13 @@ exports.up = function(knex) {
       .text("vin", 17)
       .unique()
       .notNullable();
-    // creates a numeric fields called make and model which is required
+    // creates a text fields called make and model, and a numeric field called mileage which is required
     tbl.text("make", 64).notNullable();
     tbl.text("model", 64).notNullable();
-    tbl.decimal("mileage", 10);
+    tbl.decimal("mileage", 10).notNullable();
+    // creates boolean fields called clean and salavage which is optional
+    tbl.boolean("clean");
+    tbl.boolean("salvage");
   });
 };
 
